@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-3xl;
+    }
+
+    input {
+        @apply rounded border border-gray-300;
+    }
+
+    a {
+        @apply underline hover:text-blue-950;
+    }
+}
