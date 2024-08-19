@@ -10,5 +10,5 @@ Your very own AI-powered Japanese tutor.
    * `PUBLIC_SUPABASE_URL` - Your public SUPABASE URL.
    * `PUBLIC_SUPABASE_ANON_KEY` - Your public SUPABASE anon key
    * `PUBLIC_OPENAI_API_KEY` - Your openAI API key.
-3. Configure your supabase database tables (see the `scripts` folder).
+3. Configure your supabase database tables (see the `supabase_scripts` folder).
 4. Start the app: `npm run dev -- --open`
