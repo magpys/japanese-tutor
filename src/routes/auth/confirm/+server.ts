@@ -25,7 +25,4 @@ export const GET = async ({ url, locals: { supabase } }) => {
 	}
 
 	throw new Error('Authentication failed');
-
-	redirectTo.pathname = '/auth/error'
-	redirect(303, redirectTo)
 }

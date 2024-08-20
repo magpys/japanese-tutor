@@ -14,6 +14,9 @@ export const actions: Actions = {
 		const formData = await request.formData()
 		const answer = formData.get('answer') as string
 
+		// This is inefficient but I ran out of time and opted for getting it working over making it perfect.
+		// I got the messages on page load so ideally I'd cache them or perhaps send them from the front end
+		// rather than re-fetching them in the answer action to save a round trip to the database.
 		const { data: messages } = await supabase.from('chat_history').select('id,role,message').order('id')
 
 		let allMessages: ({ role: string; content: string })[];
@@ -37,13 +40,11 @@ export const actions: Actions = {
 					{
 						role: 'user',
 						message: answer,
-						message_index: 123,
 						chat_id: params.chat
 					},
 					{
 						role: 'assistant',
 						message: completion.choices[0].message.content,
-						message_index: 123,
 						chat_id: params.chat
 					}
 			]

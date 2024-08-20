@@ -14,7 +14,7 @@ export const actions: Actions = {
 			console.error(authError);
 			throw error(authError.status ?? 400, authError.message);
 		} else {
-			redirect(303, '/')
+			redirect(303, '/?signup=success')
 		}
 	},
 	login: async ({ request, locals: { supabase } }) => {

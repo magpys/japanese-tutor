@@ -11,6 +11,9 @@ export const load = async ({ depends, locals: { supabase } }) => {
 
 export const actions: Actions = {
 	begin: async ({ locals: { supabase } }) => {
+
+		// insert values are empty here because all values are provided as defaults by the database
+		// originally I wanted to provide a function to let the chat assistant name the chat but ran out of time.
 		const { error, data } = await supabase.from('chats').insert({  }).select();
 		if (error) console.error(error);
 
@@ -25,7 +28,6 @@ export const actions: Actions = {
 					{
 						role: 'assistant',
 						message: completion.choices[0].message.content,
-						message_index: 123,
 						chat_id: data[0]['id']
 					}
 				]
